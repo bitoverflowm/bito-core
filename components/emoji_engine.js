@@ -22,7 +22,9 @@ const Emoji_Engine = props => {
         'VentureBeat': '💩',
         'BestLife': '🌈',
         'The Quantum Initiative': '🕉️',
-        'love': '❤️'
+        'love': '❤️',
+        'cool': '😎',
+        'robot': '🤖'
     }
 
     return (
