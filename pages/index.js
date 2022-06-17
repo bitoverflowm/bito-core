@@ -38,7 +38,7 @@ const Home = ({overViewData, moreData}) => {
 
 
   return (
-    <div className="relative">
+    <div className="relative bg-gradient-to-r from-yellow-300 to-pink-400">
       {visible && <div className={'fixed right-3 bottom-4 h-auto w-80 sm:w-1/3 z-40 bg-white  items-center place-content-center animate-fadeIn'}><div className="p-10"><Chat /></div></div>}
       { visible 
         ? <div onClick={clickHandler} className="fixed bottom-5 right-5 z-50 hover:text-white font-extrabold hover:bg-black rounded-full p-4 opacity-75 cursor-pointer hover:opacity-100 bg-yellow-300 text-black">
@@ -50,23 +50,23 @@ const Home = ({overViewData, moreData}) => {
       }
       
       <header className="relative flex items-center h-screen sm:mb-12">
-        <div className="absolute top-10 left-5 text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600 text-4xl font-bold">
-            🤖BitO 
+        <div className="absolute top-10 left-5 text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600 sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+            🤖 BitO 
         </div>
-        <div className="grid grid-cols-1 text-4xl p-4">
+        <div className="grid grid-cols-1 sm:text-4xl md:text-5xl lg:text-6xl p-4">
           <div className="relative z-30 text-black font-extrabold">
               Your Virtual
           </div>
           <div className="relative z-30 text-black font-extrabold">
               <div className=""><Rotating_Text /></div>
           </div>
-          <div className="text-black text-sm mt-2">
+          <div className="text-black sm:text-sm  md:text-lg lg:text-xl mt-2">
               You focus on the business 
           </div>
-          <div className="text-black text-sm">
+          <div className="text-black sm:text-sm  md:text-lg lg:text-xl">
               We'll take care of the rest
           </div>
-          <div className="text-xl underline cursor-pointer" onClick={() => handleScroll(learnMoreRef)}>
+          <div className="sm:text-xl md:text-2xl lg:text-3xl underline cursor-pointer" onClick={() => handleScroll(learnMoreRef)}>
             Click to Learn More
           </div>
         </div>
@@ -74,10 +74,10 @@ const Home = ({overViewData, moreData}) => {
         <link rel="icon" href="/favicon.ico" />
       </header>
 
-      <main className="flex flex-col text-center min-h-screen">
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <div className="text-xl" ref={learnMoreRef
         }>
-          <div className="text-md">
+          <div className="sm:text-md md:text-2xl lg:text-4xl ">
             Here's the break down:
           </div>
           <Subs />
