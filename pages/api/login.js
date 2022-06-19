@@ -1,41 +1,16 @@
-import { serialize, parse } from 'cookie'
+import { magic } from '../../lib/magic'
+import { setLoginSession } from '../../lib/auth'
 
-const TOKEN_NAME = 'token'
+export default async function login(req, res) {
+  try {
+    const didToken = req.headers.authorization.slice(7)
+    const metadata = await magic.users.getMetadataByToken(didToken)
+    const session = { ...metadata }
 
-export const MAX_AGE = 60 * 60 * 8 // 8 hours
+    await setLoginSession(res, session)
 
-export function setTokenCookie(res, token) {
-    const cookie = serialize(TOKEN_NAME, token, {
-      maxAge: MAX_AGE,
-      expires: new Date(Date.now() + MAX_AGE * 1000),
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      path: '/',
-      sameSite: 'lax',
-    })
-  
-    res.setHeader('Set-Cookie', cookie)
-}
-  
-export function removeTokenCookie(res) {
-    const cookie = serialize(TOKEN_NAME, '', {
-      maxAge: -1,
-      path: '/',
-    })
-  
-    res.setHeader('Set-Cookie', cookie)
-}
-
-export function parseCookies(req) {
-    // For API Routes we don't need to parse the cookies.
-    if (req.cookies) return req.cookies
-  
-    // For pages we do need to parse the cookies.
-    const cookie = req.headers?.cookie
-    return parse(cookie || '')
-}
-
-export function getTokenCookie(req) {
-    const cookies = parseCookies(req)
-    return cookies[TOKEN_NAME]
+    res.status(200).send({ done: true })
+  } catch (error) {
+    res.status(error.status || 500).end(error.message)
+  }
 }
