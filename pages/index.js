@@ -7,6 +7,9 @@ import OverView from "../components/overview";
 import Chat from "../components/chat";
 import Rotating_Text from "../components/rotating_text";
 import Subs from "../components/subs";
+import Top from "../components/top";
+
+import { useUser } from "../lib/hooks";
 
 export async function getStaticProps(){
 
@@ -24,6 +27,7 @@ export async function getStaticProps(){
 const Home = ({overViewData, moreData}) => {
   const [visible, setVisible] = useState();
   const learnMoreRef = useRef();
+  const user = useUser()
 
   const clickHandler = () => {
     setVisible(!visible);
@@ -48,12 +52,20 @@ const Home = ({overViewData, moreData}) => {
         Want to chat?
         </div>
       }
+
+      <Top />
       
       <header className="relative flex items-center h-screen sm:mb-12">
         <div className="absolute top-10 left-5 text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600 text-4xl font-bold">
             🤖BitO 
         </div>
         <div className="grid grid-cols-1 text-4xl p-4">
+          {user && (
+            <>
+              <p>Currently logged in as:</p>
+              <pre>{JSON.stringify(user, null, 2)}</pre>
+            </>
+          )}
           <div className="relative z-30 text-black font-extrabold">
               Your Virtual
           </div>
