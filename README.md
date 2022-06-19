@@ -3,8 +3,22 @@
 Author: Rikesh Thapa
 Project name: Bito
 
+# Setup instructions
+npm -i
 
-Stack planned: 
+> Authentication:
+Bito uses Magic with passwordless SMS login for auth
+In order to get setup on local machine create an .env.local file
+Log onto the Magic dashboard and fill out .env.local with the following values:
+
+```
+NEXT_PUBLIC_MAGIC_PUBLISHABLE_KEY=
+MAGIC_SECRET_KEY=
+TOKEN_SECRET="this-is-a-secret-value-with-at-least-32-characters"
+```
+
+
+# Stack planned: 
 > CMS
 > authentication: firebase because it looks easy af
 > db: mongo db > I do not fully know the structure of my db yet, so mongo allows for the flexibility of my light weight MVP
@@ -15,7 +29,7 @@ Stack planned:
 > API: within Next?
 > Stripe for payment and subsctription
 
-Tasks:
+# Tasks:
 > research stripe checkout process to determine how integration will work
     > questions to answer:  
         > do we authenticate after stripe payment or before? In the UI sense we do it all at once, but in a code sense what is the sequence of events? Process flow will be mapped out in figma
