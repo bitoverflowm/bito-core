@@ -1,9 +1,7 @@
 
 const LoginForm = ({ errorMessage, onSubmit }) => {
+    return(
     <div>
-        <div>
-            Form Test
-        </div>
         <form onSubmit={onSubmit}>
             <label>
                 <span>Email</span>
@@ -17,6 +15,7 @@ const LoginForm = ({ errorMessage, onSubmit }) => {
             {errorMessage && <p className="error">{errorMessage}</p>}
         </form>
     </div>
+    )
 }
 
 export default LoginForm;

@@ -47,18 +47,6 @@ const Login = () => {
 
     return (
         <div className="login">
-            <form onSubmit={handleSubmit}>
-                <label>
-                    <span>Email</span>
-                    <input type="email" name="email" required />
-                </label>
-
-                <div className="submit">
-                <button type="submit">Sign Up / Login</button>
-                </div>
-
-                {errorMsg && <p className="error">{errorMsg}</p>}
-            </form>
             <LoginForm errorMessage={errorMsg} onSubmit={handleSubmit} />
         </div>
     )
