@@ -38,7 +38,7 @@ const Subs = () => {
             <p>$75/hr addon</p>
         </div>
         <div 
-          className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600">
+          className="text-center p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600">
             <h4>Custom Pricing For Specialized Projects </h4>
             <p> NFT Minting </p> 
             <p> SC Development </p> 
@@ -46,7 +46,6 @@ const Subs = () => {
             <p> MVPs </p> 
             <p> Blockchain Architecture</p>
             <p> Security</p>
-            <p> contact us: customer@bitoverflow.org</p>
         </div>
       </div>
     </div>
