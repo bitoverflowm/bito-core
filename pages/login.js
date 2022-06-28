@@ -6,6 +6,13 @@ import { Magic } from 'magic-sdk'
 
 import LoginForm from '../components/loginForm'
 
+/*
+  <li>
+    <a href="/api/logout">Logout</a>
+  </li>
+
+*/
+
 
 const Login = () => {
     useUser({ redirectTo: '/', redirectIfFound: true })
