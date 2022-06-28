@@ -56,9 +56,6 @@ const Home = ({overViewData, moreData}) => {
       <Top />
       
       <header className="relative flex items-center h-screen sm:mb-12">
-        <div className="absolute top-10 left-5 text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600 text-4xl font-bold">
-            🤖BitO 
-        </div>
         <div className="grid grid-cols-1 text-4xl p-4">
           {user && (
             <>
@@ -72,11 +69,11 @@ const Home = ({overViewData, moreData}) => {
           <div className="relative z-30 text-black font-extrabold">
               <div className=""><Rotating_Text /></div>
           </div>
-          <div className="text-black text-sm mt-2">
-              You focus on the business 
+          <div className="text-black text-xl mt-2">
+              You focus on your craft 
           </div>
-          <div className="text-black text-sm">
-              We'll take care of the rest
+          <div className="text-black text-xl">
+              We'll take care of the tech
           </div>
           <div className="text-xl underline cursor-pointer" onClick={() => handleScroll(learnMoreRef)}>
             Click to Learn More
