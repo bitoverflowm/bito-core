@@ -1,18 +1,13 @@
 import { useState } from 'react'
 import Router from 'next/router'
-import { useUser } from '../lib/hooks'
 
+import { useUser } from '../lib/hooks'
 import { Magic } from 'magic-sdk'
 
 import LoginForm from '../components/loginForm'
+import BackArrow from '../components/navigation/backArrow'
 
-/*
-  <li>
-    <a href="/api/logout">Logout</a>
-  </li>
-
-*/
-
+/*<li><a href="/api/logout">Logout</a></li>*/
 
 const Login = () => {
     useUser({ redirectTo: '/', redirectIfFound: true })
@@ -53,8 +48,11 @@ const Login = () => {
     }
 
     return (
-        <div className="login">
-            <LoginForm errorMessage={errorMsg} onSubmit={handleSubmit} />
+        <div className='relative flex h-screen items-center bg-gradient-to-br from-pink-400 to-red-600 p-5 '>
+          <div className="grid grid-cols-1 bg-white p-5 h-full rounded-md w-full">
+              <div className='text-3xl'><BackArrow/></div>              
+              <LoginForm errorMessage={errorMsg} onSubmit={handleSubmit} />
+          </div>
         </div>
     )
 }
