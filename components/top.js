@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { useUser } from '../lib/hooks';
 import Pill from './ui/pill'
 
@@ -19,7 +21,9 @@ const Top = () => {
                     )
                 }
             </div>
-            
+            <div className='logout'>
+                <Link href="/api/logout"><a>Logout</a></Link>
+            </div>            
         </header>
     )
 }
