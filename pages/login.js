@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useUser } from '../lib/hooks'
 import { Magic } from 'magic-sdk'
 
-import LoginForm from '../components/loginForm'
+import LoginForm from '../components/authForms/loginForm'
 import BackArrow from '../components/navigation/backArrow'
 
 /*<li><a href="/api/logout">Logout</a></li>*/
@@ -69,8 +69,7 @@ const Login = () => {
             <div className='SignUp flex place-content-center p-4'>
               Don't have an account? <Link href='/signup' ><div className='underline text-blue-600 pl-2'>Register Now</div></Link>
             </div>
-          </div>
-          
+          </div>          
         </div>
     )
 }

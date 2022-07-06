@@ -9,8 +9,7 @@ const LoginForm = ({ errorMessage, onSubmit }) => {
                     <div className="flex-none submit bg-blue-700 text-white rounded-full">
                         <button className="font-bold p-4" type="submit">Login</button>
                     </div>
-                </div>                
-
+                </div>
                 {errorMessage && <p className="error">{errorMessage}</p>}
             </form>
         </div>

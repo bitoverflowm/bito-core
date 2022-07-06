@@ -17,6 +17,30 @@ MAGIC_SECRET_KEY=
 TOKEN_SECRET="this-is-a-secret-value-with-at-least-32-characters"
 ```
 
+> Payments:
+We are utilizing Stripe for payment processing. Bito primarily uses subscription model payments so that is what the implementation currently covers. For Stripe implementation these are the crucial components, steps and elements involved
+- Stripe Elements ? 
+- frontend: pages/signup.js
+- backend: pages/api/payments/
+    - crateuser (on Stripe)
+    - createsubscruption
+    - cancelsubscription
+- webhook handling for post-payment events
+- helpers:
+    - utils/api-helpers.js
+    - utils/stripe-helpers.js
+
+- config in .env.local needs to be transferred to Vercel/ deployment vehicle:
+```
+# Stripe keys
+# https://dashboard.stripe.com/apikeys
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_12345
+STRIPE_SECRET_KEY=sk_12345
+STRIPE_PAYMENT_DESCRIPTION='Software development services'
+# https://stripe.com/docs/webhooks/signatures
+STRIPE_WEBHOOK_SECRET=whsec_1234
+```
+- Micro: since Next is same origin, we need Micro to handle the requests we sent to Stripe
 
 # Stack planned: 
 > CMS
