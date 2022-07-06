@@ -1,4 +1,6 @@
-
+/*
+* GET helper function with fetch
+*/
 export async function fetchGetJSON(url){
     try {
         const data = await fetch(url).then((res) => res.json())
@@ -11,6 +13,11 @@ export async function fetchGetJSON(url){
         throw err
     }
 }
+
+/*
+* POST helper function with fetch
+* This structure can be followed to create PUT, DELETE etc
+*/
 
 export async function fetchPostJSON(url, data = {}){
     try{
