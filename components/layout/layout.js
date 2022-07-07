@@ -7,9 +7,9 @@ const Layout = ({
     subTitle
 }) => (
     <>
-        <div className='relative flex h-screen items-center bg-gradient-to-br from-nft-purple to-nft-cotton p-5 '>
-          <div className='p-5 h-full rounded-md w-full bg-white grid grid-cols-1 divide-y divide-black'>
-            <div className="grid grid-cols-1 max-h-12 pt-2">
+        <div className='relative flex min-h-screen items-center bg-gradient-to-br from-nft-purple to-nft-cotton p-5 '>
+          <div className='p-3 h-full rounded-md w-full bg-white grid grid-cols-1 divide-y divide-black'>
+            <div className="grid grid-cols-1 max-h-25 pt-2">
                 <div className='text-3xl p-2'><BackArrow/></div>
                 <div className=''>
                   <div className="text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600 text-6xl text-center">

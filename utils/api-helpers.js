@@ -19,6 +19,18 @@ export async function fetchGetJSON(url){
 * This structure can be followed to create PUT, DELETE etc
 */
 
+/* Example use case on Client side needs to be wrapped in useEffect()
+
+useEffect(() => {
+    fetchPostJSON('api/create_user', {
+        email: 'johndoe@gmail.com',
+    }).then((data) => {
+        //... outcomes
+    })
+}, [args...])
+
+*/
+
 export async function fetchPostJSON(url, data = {}){
     try{
         const response = await fetch(url, {
