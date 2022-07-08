@@ -1,16 +1,21 @@
-import { useState, useEffect } from "react";
-import { BsEaselFill } from "react-icons/bs";
+import { useState, useEffect } from "react"
+import { BsEaselFill } from "react-icons/bs"
+import {Elements, useStripe, useElements } from "@stripe/react-stripe-js"
 
-import { fetchPostJSON } from "../../utils/api-helpers";
+import { fetchPostJSON } from "../../utils/api-helpers"
+import getStripe from "../../utils/get-stripe"
+import SubPaymentForm from "../payments/subPaymentForm"
+
 
 const SignUpForm = ({
     subPlan  = 'ruby'
-}) => {    
+}) => {
     const [errorMessage, setErrorMessage] = useState('')
     const [step, setStep] = useState(1)
-    const [customer, setCustomer] = useState();
-    const [subscriptionPlan, setSubscriptionPlan] = useState('1');
-    const [subscriptionData, setSubscriptionData] = useState();
+    const [customer, setCustomer] = useState()
+    const [subscriptionPlan, setSubscriptionPlan] = useState('1')
+    const [subscriptionId, setSubscriptionId] = useState()
+    const [clientSecret, setClientSecret] = useState()   
 
     async function submitEmailHandler (e) {
         e.preventDefault()
@@ -40,7 +45,8 @@ const SignUpForm = ({
                     priceId: testPlans[subscriptionPlan],
                     customerId: customer.id,
                 }).then((data) => {
-                    setSubscriptionData([data.subscriptionId, data.clientSecret])
+                    setSubscriptionId(data.subscriptionId)
+                    setClientSecret(data.clientSecret)
                     setStep(3)
                 })
             } catch (error) {
@@ -49,6 +55,7 @@ const SignUpForm = ({
             }
         }
     }
+
 
     const testPlans = {
         '1': 'price_1LA225ILjX7EMe6xZsUiNe70',
@@ -92,17 +99,14 @@ const SignUpForm = ({
                     {errorMessage && <p className="error">{errorMessage}</p>}
                 </form>
                 }
-                {step === 3 &&
-                <form onSubmit={selectPlanHandler}>
-                    <div className="flex border-black border-2 rounded-full p-3 mt-3">
-                        Enter your payment information
-                    </div>
-                    <div className="flex-none submit bg-blue-700 text-white rounded-full">
-                        <button className="font-bold p-4" type="submit">Go!</button>
-                    </div>
-                    {errorMessage && <p className="error">{errorMessage}</p>}
-                </form>
-                }
+            {step === 3 &&
+            <Elements stripe={getStripe()}
+                options={{
+                    clientSecret: clientSecret,
+                }}>
+                    <SubPaymentForm clientSecret={clientSecret}/>                
+            </Elements>
+            }
         </div>            
     )
 }

@@ -6,7 +6,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 
 export default async function createSubscription(req, res){
     try{
-        console.log('we made it here')
         if(req.method === 'POST') {
             const subscription = await stripe.subscriptions.create({
                 customer: req.body.customerId,

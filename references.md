@@ -5,11 +5,10 @@ general education about subsctiptions: https://stripe.com/docs/billing/subscript
 fixed price subscription guide although I used the main guide more: https://stripe.com/docs/billing/subscriptions/fixed-price
 another guide, but this one seeems simplistic: https://ilango.hashnode.dev/how-to-add-stripe-subscriptions-to-your-nextjs-application 
 
-add utils: api-helpers  https://github.com/vercel/next.js/blob/canary/examples/with-stripe-typescript/utils/api-helpers.ts
+add utils: api-helpers https://github.com/vercel/next.js/blob/canary/examples/with-stripe-typescript/utils/api-helpers.ts
+add utils: get-stripejs  singleton so that stripe is only instantiated once https://github.com/vercel/next.js/blob/canary/examples/with-stripe-typescript/utils/get-stripejs.ts
 
 example use of fetchPOSTJson from api-helpers: https://github.com/vercel/next.js/blob/canary/examples/with-stripe-typescript/pages/donate-with-elements.tsx
-
-add utils: get-stripejs  singleton so that stripe is only instantiated once https://github.com/vercel/next.js/blob/canary/examples/with-stripe-typescript/utils/get-stripejs.ts
 
 create user client: https://github.com/stripe-samples/subscription-use-cases/blob/master/fixed-price-subscriptions/client/react/src/Register.js
 
