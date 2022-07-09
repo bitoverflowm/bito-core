@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react"
+import Router from 'next/router'
 import { BsEaselFill } from "react-icons/bs"
 import {Elements, useStripe, useElements } from "@stripe/react-stripe-js"
+import { Magic } from 'magic-sdk'
+
+import { useUser } from '../../lib/hooks'
 
 import { fetchPostJSON } from "../../utils/api-helpers"
 import getStripe from "../../utils/get-stripe"
@@ -10,19 +14,43 @@ import SubPaymentForm from "../payments/subPaymentForm"
 const SignUpForm = ({
     subPlan  = 'ruby'
 }) => {
+    useUser({ redirectIfFound: false})
     const [errorMessage, setErrorMessage] = useState('')
     const [step, setStep] = useState(1)
     const [customer, setCustomer] = useState()
     const [subscriptionPlan, setSubscriptionPlan] = useState('1')
     const [subscriptionId, setSubscriptionId] = useState()
-    const [clientSecret, setClientSecret] = useState()   
+    const [clientSecret, setClientSecret] = useState()  
 
     async function submitEmailHandler (e) {
         e.preventDefault()
         if(step === 1){
+            let emailVal = e.currentTarget.email.value
+            const body = {
+                email: emailVal
+            }
             try{
+                const magic = new Magic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_KEY)
+                const didToken = await magic.auth.loginWithMagicLink({
+                    email: emailVal,
+                  })
+                const signUpRes = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: 'Bearer ' + didToken,
+                      },
+                      body: JSON.stringify(body),
+                })
+                if(signUpRes.status === 200){
+                    alert('account created')
+                } else {
+                    Router.push('/')
+                    throw new Error(await res.text())
+                }
+                
                 const res = await fetchPostJSON('/api/createStripeCustomer', {
-                    email: e.currentTarget.email.value,
+                    email: emailVal,
                 }).then((data) => {
                     setCustomer(data.customer)
                     console.log(data.customer)
