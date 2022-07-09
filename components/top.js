@@ -15,15 +15,15 @@ const Top = () => {
             <div className='absolute right-10 top-10 z-30'>
                 {
                     user ? (
+                        <div>
                         <Pill linker='/profile' label='Profile' usename={user.email}/>
+                        <Link href="/api/logout"><a>Logout</a></Link>
+                        </div>
                     ) : (
                         <Pill linker='/login' label='Login'/>
                     )
                 }
-            </div>
-            <div className='logout'>
-                <Link href="/api/logout"><a>Logout</a></Link>
-            </div>            
+            </div>         
         </header>
     )
 }

@@ -21,7 +21,7 @@ handle payment with Elements and payment submission: https://github.com/stripe-s
 tentative summary of subscription and conclusion to workflow: https://github.com/stripe-samples/subscription-use-cases/blob/master/fixed-price-subscriptions/client/react/src/Account.js
 
 
-Example of how Elements form is used to quickly setup car payment forms and such: https://github.com/vercel/next.js/blob/canary/examples/with-stripe-typescript/components/ElementsForm.tsx 
+Example of how Elements form is used to quickly setup card payment forms and such: https://github.com/vercel/next.js/blob/canary/examples/with-stripe-typescript/components/ElementsForm.tsx 
 
 Stripe webhooks with microcors bnecasue next needs it since its single origin: https://github.com/vercel/next.js/blob/canary/examples/with-stripe-typescript/pages/api/webhooks/index.ts
 https://github.com/vercel/next.js/blob/canary/examples/with-stripe-typescript/pages/api/webhooks/index.ts
@@ -29,7 +29,6 @@ https://dashboard.stripe.com/webhooks
 
 
 Payment Intents may be necessary, but may not be needed for subscription model: https://github.com/vercel/next.js/blob/canary/examples/with-stripe-typescript/pages/api/payment_intents/index.ts
-
 
 
 Stripe helpers: format numbers for stripe may be necessary https://github.com/vercel/next.js/blob/canary/examples/with-stripe-typescript/utils/stripe-helpers.ts

@@ -11,29 +11,18 @@ import Top from "../components/top";
 
 import { useUser } from "../lib/hooks";
 
-export async function getStaticProps(){
-
-  const res = await fetch('https://mighty-anchorage-30412.herokuapp.com/api/bit-overflows')
-  //const res = await fetch('http://localhost:1337/api/verdeblocks/')
-  const overViewData = await res.json()
-
-  //const res2 = await fetch('http://localhost:1337/api/verdeblocks/')
-  const res2 = await fetch('https://mighty-anchorage-30412.herokuapp.com/api/bit-overflow-mores/')
-  const moreData = await res2.json()
-
-  return { props: {overViewData, moreData}}
-}
-
 const Home = ({overViewData, moreData}) => {
-  const [visible, setVisible] = useState();
+  const [chatVisible, setChatVisible] = useState()
+  const [registerActive, setRegisterActive] = useState()
   const learnMoreRef = useRef();
   const user = useUser()
 
   const clickHandler = () => {
-    setVisible(!visible);
+    setChatVisible(!chatVisible);
   }
   
   const handleScroll = ref => {
+    setRegisterActive(true)
     window.scrollTo({
       behavior: "smooth",
       top: ref.current.offsetTop
@@ -42,20 +31,24 @@ const Home = ({overViewData, moreData}) => {
 
 
   return (
-    <div className="relative">
-      {visible && <div className={'fixed right-3 bottom-4 h-auto w-80 sm:w-1/3 z-40 bg-white  items-center place-content-center animate-fadeIn'}><div className="p-10"><Chat /></div></div>}
-      { visible 
-        ? <div onClick={clickHandler} className="fixed bottom-5 right-5 z-50 hover:text-white font-extrabold hover:bg-black rounded-full p-4 opacity-75 cursor-pointer hover:opacity-100 bg-yellow-300 text-black">
+    <div className="relative min-h-screen items-center bg-gradient-to-br from-nft-purple to-nft-cotton p-5">
+      {(chatVisible && !registerActive) && <div className={'fixed right-3 bottom-4 h-auto w-80 sm:w-1/3 z-40 bg-white  items-center place-content-center animate-fadeIn'}><div className="p-10"><Chat /></div></div>}
+      { (chatVisible &&  !registerActive) && <div onClick={clickHandler} className="fixed bottom-5 right-5 z-50 hover:text-white font-extrabold hover:bg-black rounded-full p-4 opacity-75 cursor-pointer hover:opacity-100 bg-yellow-300 text-black">
         X
-          </div>
-        : <div onClick={clickHandler} className="fixed bottom-5 right-5 z-30 text-white font-extrabold bg-black rounded-full p-4 opacity-75 cursor-pointer hover:opacity-100 hover:bg-yellow-300 hover:text-black">
+        </div>
+      }
+      { (!chatVisible &&  !registerActive) && <div onClick={clickHandler} className="fixed bottom-5 right-5 z-30 text-white font-extrabold bg-black rounded-full p-4 opacity-75 cursor-pointer hover:opacity-100 hover:bg-yellow-300 hover:text-black">
         Want to chat?
         </div>
       }
+      {
+        registerActive && <div className={'fixed bottom-5 right-5 z-30 text-white font-extrabold bg-black rounded-full opacity-80 cursor-pointer hover:opacity-100 hover:bg-yellow-300 hover:text-black'}><div className="p-4">Get started now!</div></div>
+      }
 
-      <Top />
       
-      <header className="relative flex items-center h-screen sm:mb-12">
+      
+      <header className="relative flex items-center  sm:mb-12 p-3 h-screen rounded-md w-full bg-white">
+        <Top />
         <div className="grid grid-cols-1 text-4xl p-4">
           {user && (
             <>
@@ -64,13 +57,13 @@ const Home = ({overViewData, moreData}) => {
             </>
           )}
           <div className="relative z-30 text-black font-extrabold">
-              Your Virtual
+              Your High Quality Website
           </div>
           <div className="relative z-30 text-black font-extrabold">
-              <div className=""><Rotating_Text /></div>
+              in less than 24hrs
           </div>
           <div className="text-black text-xl mt-2">
-              You focus on your craft 
+              You focus on your business 
           </div>
           <div className="text-black text-xl">
               We'll take care of the tech
