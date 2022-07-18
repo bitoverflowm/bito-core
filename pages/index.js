@@ -35,47 +35,60 @@ const Home = ({overViewData, moreData}) => {
 
 
   return (
-    <div className="relative min-h-screen items-center bg-gradient-to-br from-nft-purple to-nft-cotton p-5">
-      {(chatVisible && !registerActive) && <div className={'fixed right-3 bottom-4 h-auto w-80 sm:w-1/3 z-40 bg-white  items-center place-content-center animate-fadeIn'}><div className="p-10"><Chat /></div></div>}
-      { (chatVisible &&  !registerActive) && <div onClick={clickHandler} className="fixed bottom-5 right-5 z-50 hover:text-white font-extrabold hover:bg-black rounded-full p-4 opacity-75 cursor-pointer hover:opacity-100 bg-yellow-300 text-black">
-        X
+    <div className="relative items-center bg-gradient-to-br from-nft-purple to-nft-cotton p-5">
+      <div className={'fixed bottom-5 right-12 z-30 text-white font-extrabold bg-black rounded-full opacity-80 cursor-pointer hover:opacity-100 hover:bg-yellow-300 hover:text-black'}><Pill linker='/signup' label='Get your website Now!'/></div>
+      <header className="relative grid content-center rounded-md w-full bg-white min-h-screen">
+        <div className="">
+          <Top />
         </div>
-      }
-      { (!chatVisible &&  !registerActive) && <div onClick={clickHandler} className="fixed bottom-5 right-5 z-30 text-white font-extrabold bg-black rounded-full p-4 opacity-75 cursor-pointer hover:opacity-100 hover:bg-yellow-300 hover:text-black">
-        Want to chat?
+        <div className="grid grid-cols-2 text-4xl sm:p-10 items-center place-items-center">
+          <div className="border-r-2 border-indigo-200 text-right pr-10">
+            <div className="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br to-nft-purple from-nft-cotton">
+              Your
+            </div>
+            <div className="flex flex-wrap">
+              <div className="basis-full font-extrabold text-5xl">
+                Brand New
+              </div>
+              <div className="basis-full font-extrabold text-5xl text-transparent bg-clip-text bg-gradient-to-br to-nft-purple from-nft-cotton">
+                World Class
+              </div>
+              <div className="basis-full font-extrabold">
+                Website in under
+              </div>
+              <div className="basis-full font-extrabold text-6xl">
+                24hrs.
+              </div>
+            </div>
+            <div className="text-black text-xl mt-2">
+              You focus on your craft 
+            </div>
+            <div className="text-black text-xl">
+              We'll take care of the tech.
+            </div>
+          </div>
+          <div className="items-center">
+            <video autoPlay loop muted playsInline className="rounded-lg max-h-[600px]">
+              <source src="/video/mainArt.mp4"/>
+            </video>
+          </div>          
         </div>
-      }
-      {
-        registerActive && <div className={'fixed bottom-5 right-5 z-30 text-white font-extrabold bg-black rounded-full opacity-80 cursor-pointer hover:opacity-100 hover:bg-yellow-300 hover:text-black'}><Pill linker='/signup' label='Register Now!'/></div>
-      }
-      
-      
-      <header className="relative flex items-center sm:mb-12 p-3 h-screen rounded-md w-full bg-white">
-        <Top />
-        <div className="grid grid-cols-1 text-4xl p-4">
-          {user && (
-            <>
-              <p>Currently logged in as:</p>
-              <pre>{JSON.stringify(user, null, 2)}</pre>
-            </>
-          )}
-          <div className="relative z-30 text-black font-extrabold">
-              Your High Quality Website
-          </div>
-          <div className="relative z-30 text-black font-extrabold">
-              in less than 24hrs
-          </div>
-          <div className="text-black text-xl mt-2">
-              You focus on your business 
-          </div>
-          <div className="text-black text-xl">
-              We'll take care of the tech
-          </div>
-          <div className="text-xl underline cursor-pointer" onClick={() => handleScroll(learnMoreRef)}>
-            Click to Learn More
-          </div>
+        <div className="flex flex-wrap text-sm place-content-center">
+          <div className="flex flex-wrap max-w-screen-sm w-full place-content-center">
+            <Pill linker='/signup' label='Websites'/>
+            <Pill linker='/signup' label='Apps'/>
+            <Pill linker='/signup' label='NFTs'/>
+            <Pill linker='/signup' label='Crypto'/>
+            <Pill linker='/signup' label='Whitepaper reviews'/>
+            <Pill linker='/signup' label='Smart Contracts'/>
+            <Pill linker='/signup' label='CTO Service'/>
+            <Pill linker='/signup' label='3D graphics'/>
+            <Pill linker='/signup' label='AI'/>
+          </div>          
         </div>
-        
+        <div className="text-xl underline cursor-pointer text-center" onClick={() => handleScroll(learnMoreRef)}>
+          Click to Learn More
+        </div>     
         <link rel="icon" href="/favicon.ico" />
       </header>
 
@@ -85,35 +98,42 @@ const Home = ({overViewData, moreData}) => {
             Here's the deal:
           </div>
           <div className="text-md">
-            You are a powerful indie, solo-preneur, small team, small business, maybe even a mid sized big fish in a small pond.
+            You are a powerful indie, solo-preneur, team or business.
           </div>
           <div className="text-md">
             You are ambitious. But...
           </div>
           <div className="text-md">
-            You have an impending crisis. And you feel it deep down in your stomach.
-            The world is already in the future. You are not a melinnial so you simply do not have the time to keep up on the side. 
+            You have an impending crisis...
+            you feel it deep down in your stomach.
+            the future is already here
+            but you just can't find time to keep up! 
           </div>
           <div className="text-md">
-            You are juggeling a tonne of tasks
+            We get it, we're entreprenurs too -- you are juggeling a tonne of tasks
           </div>
           <div className="text-md">
             But the crisis still remains -- you need tech! Your customers use tech! Everyone has tech!
           </div>
           <div className="text-xl underline cursor-pointer" onClick={() => handleScroll(costsSectionRef)}>
-            Click to Learn More
+            Continue...
           </div>
         </div>
 
-        <div className="relative items-center sm:mb-12 h-[96vh] rounded-md w-full bg-white text-xl mt-2 p-5" ref={costsSectionRef}>
-          <div className="text-md">
-            TO further add fuel to the fire:
-          </div>
+        <div className="relative items-center sm:mb-12 h-[96vh] rounded-md  w-full bg-white text-xl mt-2 p-5" ref={costsSectionRef}>
           <div className="text-md">
             Whether its payment processing, marketing with instagram and facebook, using wordperess, or any no code solution, or even making a simple single page website:
           </div>
           <div className="text-md">
-            1 good developer = min salary $150,000 /year (before inflation made things worse)
+            Here are your options:
+          </div>          
+          <div className="text-md">
+            1 good dev = min salary $150,000 /year (before inflation made things worse)
+          </div>
+          <div className="text-md">
+            strengths: 
+            - you aren't hiring a team of devs
+
           </div>
           <div className="text-md">
             Even the 1 dev cannot handle all your tech needs. Devs need to somewhat specialize otherwise they become useless generalists.

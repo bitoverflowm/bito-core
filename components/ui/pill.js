@@ -8,6 +8,7 @@ const Pill = props => {
     /* linked values can be Logout, Login, Profile */
     const linker = props.linker
     const label = props.label
+    const color = props.color ? props.color : 'bg-black'
     const username = 'John'
     const avatar = '/bear.png'
 
@@ -18,7 +19,7 @@ const Pill = props => {
 
 
     return (
-        <div className="font-bold rounded-full bg-black text-white p-2 px-4 flex" onClick={handleClick}>
+        <div className={`font-bold rounded-full ${color} text-white p-2 px-4 flex hover:bg-nft-orange hover:font-extrabold hover:text-black m-1 cursor-pointer`} onClick={handleClick}>
             {
                     linker === '/profile' ? (
                         <Avatar username={username}/>
