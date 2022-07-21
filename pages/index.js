@@ -41,8 +41,8 @@ const Home = ({overViewData, moreData}) => {
         <div className="">
           <Top />
         </div>
-        <div className="grid grid-cols-2 text-4xl sm:p-10 items-center place-items-center">
-          <div className="border-r-2 border-indigo-200 text-right pr-10">
+        <div className="grid sm:grid-cols-2 mt-8 sm:mt-1 text-4xl sm:p-10 items-center place-items-center">
+          <div className="sm:border-r-2 sm:border-indigo-200 text-right pr-10">
             <div className="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br to-nft-purple from-nft-cotton">
               Your
             </div>
@@ -67,14 +67,14 @@ const Home = ({overViewData, moreData}) => {
               We'll take care of the tech.
             </div>
           </div>
-          <div className="items-center">
-            <video autoPlay loop muted playsInline className="rounded-lg max-h-[600px]">
+          <div className="items-center p-10">
+            <video autoPlay loop muted playsInline className="rounded-lg max-h-[300px] sm:max-h-[600px]">
               <source src="/video/mainArt.mp4"/>
             </video>
           </div>          
         </div>
         <div className="flex flex-wrap text-sm place-content-center">
-          <div className="flex flex-wrap max-w-screen-sm w-full place-content-center">
+          <div className="flex flex-wrap max-w-xs sm:max-w-screen-sm w-full place-content-center">
             <Pill linker='/signup' label='Websites'/>
             <Pill linker='/signup' label='Apps'/>
             <Pill linker='/signup' label='NFTs'/>
@@ -86,7 +86,7 @@ const Home = ({overViewData, moreData}) => {
             <Pill linker='/signup' label='AI'/>
           </div>          
         </div>
-        <div className="text-xl underline cursor-pointer text-center" onClick={() => handleScroll(learnMoreRef)}>
+        <div className="text-xl underline cursor-pointer text-center p-5" onClick={() => handleScroll(learnMoreRef)}>
           Click to Learn More
         </div>     
         <link rel="icon" href="/favicon.ico" />

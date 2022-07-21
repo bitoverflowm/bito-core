@@ -114,7 +114,7 @@ const SignUpForm = ({
                     <div className="text-center italic">
                         Select your plan. 1st month is just a deposit. If you are not 100% satisfied with us, you get all cash back!
                     </div>
-                    <div className="flex">
+                    <div className="sm:flex">
                         <div className={`basis-1/3 border border-black rounded-md p-8 m-2  cursor-pointer ${subscriptionPlan === '1' ? 'bg-green-400 font-extrabold': ''}`} onClick={ () => setSubscriptionPlan('1')}>
                             <div>Ruby</div>
                             <div>$600 / month</div>

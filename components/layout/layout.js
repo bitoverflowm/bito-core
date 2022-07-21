@@ -8,8 +8,8 @@ const Layout = ({
     subTitle
 }) => {
     return(
-      <div className='relative flex h-screen items-center bg-gradient-to-br from-nft-purple to-nft-cotton p-5 '>
-          <div className='p-5 h-full rounded-md w-full bg-white grid grid-cols-1 divide-y divide-black'>
+      <div className='relative flex min-h-screen items-center bg-gradient-to-br from-nft-purple to-nft-cotton p-5 '>
+          <div className='p-2 sm:p-5 min-h-screen rounded-md w-full bg-white grid grid-cols-1 divide-y divide-black'>
             <div className='grid grid-cols-1 sm:grid-cols-2 items-center'>
               <div className="grid grid-cols-1">
                   <div className='text-3xl row-span-1 cursor-pointer'><BackArrow/></div>
