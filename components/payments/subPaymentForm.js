@@ -51,7 +51,7 @@ const SubPaymentForm = (props) => {
         const { error } = await stripe.confirmPayment({
             elements,
             confirmParams: {
-                //return_url: 'http://localhost:3000/',
+                return_url: 'http://localhost:3000/',
                 payment_method_data: {
                     billing_details: {
                         name: fullName,

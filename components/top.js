@@ -20,7 +20,7 @@ const Top = () => {
                                 <Link href="/api/logout"><a>Logout</a></Link>
                             </div>
                             <div className='mx-4'>
-                                <Pill linker='/profile' label='Profile' usename={user.email}/>
+                                <Pill linker='/profile' label='Profile' username={user.email}/>
                             </div>                            
                         </div>
                     ) : (

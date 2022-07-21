@@ -9,7 +9,7 @@ const Pill = props => {
     const linker = props.linker
     const label = props.label
     const color = props.color ? props.color : 'bg-black'
-    const username = 'John'
+    const username = props.username
     const avatar = '/bear.png'
 
     const handleClick = (e) => {
