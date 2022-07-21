@@ -8,7 +8,7 @@ const Top = () => {
     const user = useUser();
 
     return(
-        <div className='block sm:m-16'>
+        <div className='block m-16'>
             <div className="absolute top-10 left-5 text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600 text-4xl font-bold">
                 🤖BitO 
             </div>
@@ -16,11 +16,11 @@ const Top = () => {
                 {
                     user ? (
                         <div className='flex place-items-center'>
-                            <div className='hover:text-nft-orange hover:font-extrabold'>
+                            <div className='hover:text-nft-orange hover:font-extrabold invisible hidden sm:visible sm:block'>
                                 <Link href="/api/logout"><a>Logout</a></Link>
                             </div>
                             <div className='mx-4'>
-                                <Pill linker='/profile' label='Profile' usename={user.email}/>
+                                <Pill linker='/profile' label='Profile' username={user.email}/>
                             </div>                            
                         </div>
                     ) : (

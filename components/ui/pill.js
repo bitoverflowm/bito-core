@@ -9,7 +9,7 @@ const Pill = props => {
     const linker = props.linker
     const label = props.label
     const color = props.color ? props.color : 'bg-black'
-    const username = 'John'
+    const username = props.username
     const avatar = '/bear.png'
 
     const handleClick = (e) => {
@@ -19,7 +19,7 @@ const Pill = props => {
 
 
     return (
-        <div className={`font-bold rounded-full ${color} text-white p-2 px-4 flex hover:bg-nft-orange hover:font-extrabold hover:text-black m-1 cursor-pointer`} onClick={handleClick}>
+        <div className={`text-xs sm:text-sm font-bold rounded-full ${color} text-white px-2 p-2 sm:px-4 flex hover:bg-nft-orange hover:font-extrabold hover:text-black m-1 cursor-pointer`} onClick={handleClick}>
             {
                     linker === '/profile' ? (
                         <Avatar username={username}/>

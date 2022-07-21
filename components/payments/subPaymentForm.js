@@ -51,7 +51,7 @@ const SubPaymentForm = (props) => {
         const { error } = await stripe.confirmPayment({
             elements,
             confirmParams: {
-                //return_url: 'http://localhost:3000/',
+                return_url: '/profile',
                 payment_method_data: {
                     billing_details: {
                         name: fullName,
@@ -74,8 +74,8 @@ const SubPaymentForm = (props) => {
     return (
             <form onSubmit={paymentHandler}>
                     <input
-                        placeholder="Cardholder name"
-                        className="elements-style"
+                        placeholder="Cardholder Name"
+                        className="border-2 w-full p-1 rounded-md my-2"
                         type="Text"
                         name="fullName"
                         onChange={handleInputChange}
@@ -92,7 +92,7 @@ const SubPaymentForm = (props) => {
                     </div>                   
                     <button 
                         disabled={processing || disabled || succeeded}
-                        className="font-bold p-4" type="submit">
+                        className="font-bold p-4 bg-green-400 w-full rounded-md my-2" type="submit">
                             Lets Build!
                     </button>
                     {errorMessage && <p className="error">{errorMessage}</p>}
